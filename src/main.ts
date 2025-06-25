@@ -12,7 +12,7 @@ const { actorId, input } = (await Actor.getInput<Input>())!;
 // call actorId with input
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
-await Actor.call(actorId, JSON.parse(input));
+await Actor.call(actorId, input);
 
 
 //const runId = (await Actor.call(actorId, JSON.parse(input))).id;
