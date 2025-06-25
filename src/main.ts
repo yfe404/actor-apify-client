@@ -12,11 +12,11 @@ const { actorId, input } = (await Actor.getInput<Input>())!;
 // call actorId with input
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
-await Actor.call(actorId, input);
-
-
-//const runId = (await Actor.call(actorId, JSON.parse(input))).id;
-//const dataset = await apifyClient.dataset(runId);
+//await Actor.call(actorId, input);
+const runId = (await Actor.call(actorId, JSON.parse(input))).id;
+console.log(`Actor ran with ID: ${runId}`);
+const dataset = await apifyClient.dataset(runId);
+console.log(`Dataset ID: ${dataset.id}`);
 
 
 // then convert `dataset.items` to CSV and save under OUTPUT.csv, e
