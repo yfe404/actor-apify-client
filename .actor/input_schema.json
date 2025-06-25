@@ -8,7 +8,19 @@
             "type": "string",
             "description": "Your Apify token. You can find it in your Apify account settings under Integrations.",
             "editor": "textfield"
-        }
-    },
-    "required": ["token"]
+        },
+		"actorId": {
+			"title": "actorId",
+			"type": "string",
+			"description": "The ID of the actor you want to call.",
+			"editor": "textfield"
+		},
+		"input": {
+			"title": "input",
+			"type": "object",
+			"description": "Input for the actor. This should be a JSON object containing the necessary parameters for the Amazon Product Scraper.",
+			"editor": "json"
+		}
+    }
+    "required": ["token", "actorId", "input"],
 }
