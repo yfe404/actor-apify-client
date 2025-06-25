@@ -2,18 +2,24 @@ import { Actor } from 'apify';
 import { ApifyClient } from 'apify-client';
 
 interface Input {
-    token: string,
     actorId: string,
     input: string
 }
 await Actor.init();
 
-const { token, actorId, input } = inputData;
+const { actorId, input } = (await Actor.getInput<Input>())!;
 
 // call actorId with input
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
 await Actor.call(actorId, JSON.parse(input));
+
+
+//const runId = (await Actor.call(actorId, JSON.parse(input))).id;
+//const dataset = await apifyClient.dataset(runId);
+
+
+// then convert `dataset.items` to CSV and save under OUTPUT.csv, e
 
 // retrieve datasets from actor runs
 
