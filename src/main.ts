@@ -1,6 +1,5 @@
 import { Actor, Dataset } from 'apify';
 import { ApifyClient } from 'apify-client';
-import { parse } from 'json2csv';
 
 interface Input {
     actorId: string,
