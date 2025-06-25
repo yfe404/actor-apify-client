@@ -1,15 +1,14 @@
 {
-    "title": "Scrape data from a web page",
+    "title": "Call Actor Amazon Product Scraper",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
         "url": {
-            "title": "URL of the page",
+            "title": "token",
             "type": "string",
-            "description": "The URL of website you want to get the data from.",
-            "editor": "textfield",
-            "prefill": "https://www.apify.com/"
+            "description": "Your Apify token. You can find it in your Apify account settings under Integrations.",
+            "editor": "textfield"
         }
     },
-    "required": ["url"]
+    "required": ["token"]
 }
