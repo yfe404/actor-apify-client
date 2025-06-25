@@ -22,4 +22,8 @@ const dataset = await Dataset.open(datasetId);
 // Convert dataset items to CSV
 await dataset.exportToCSV('OUTPUT.csv');
 
+const keyValueStoreId = Actor.getEnv().defaultKeyValueStoreId;
+console.log('Current Key-Value Store ID:', keyValueStoreId);
+
+
 await Actor.exit();
