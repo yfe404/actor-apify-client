@@ -1,26 +1,26 @@
 {
-    "title": "Call Actor Amazon Product Scraper",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "url": {
-            "title": "token",
-            "type": "string",
-            "description": "Your Apify token. You can find it in your Apify account settings under Integrations.",
-            "editor": "textfield"
-        },
-		"actorId": {
-			"title": "actorId",
-			"type": "string",
-			"description": "The ID of the actor you want to call.",
-			"editor": "textfield"
-		},
-		"input": {
-			"title": "input",
-			"type": "object",
-			"description": "Input for the actor. This should be a JSON object containing the necessary parameters for the Amazon Product Scraper.",
-			"editor": "json"
-		}
+  "title": "Call Actor Amazon Product Scraper",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "token": {
+      "title": "Apify token",
+      "type": "string",
+      "description": "Your Apify token. You can find it in your Apify account settings under Integrations.",
+      "editor": "textfield"
+    },
+    "actorId": {
+      "title": "Actor ID",
+      "type": "string",
+      "description": "The ID of the actor you want to call.",
+      "editor": "textfield"
+    },
+    "input": {
+      "title": "Input",
+      "type": "object",
+      "description": "Input for the actor. This should be a JSON object containing the necessary parameters for the Amazon Product Scraper.",
+      "editor": "json"
     }
-    "required": ["token", "actorId", "input"]
+  },
+  "required": ["token", "actorId", "input"]
 }
