@@ -13,7 +13,7 @@ const { actorId, input } = (await Actor.getInput<Input>())!;
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
 //await Actor.call(actorId, input);
-const runId = (await Actor.call(actorId, JSON.parse(input))).id;
+const runId = (await Actor.call(actorId, input)).id;
 console.log(`Actor ran with ID: ${runId}`);
 const dataset = await apifyClient.dataset(runId);
 console.log(`Dataset ID: ${dataset.id}`);
