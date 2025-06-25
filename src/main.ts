@@ -1,5 +1,6 @@
-import { Actor } from 'apify';
+import { Actor, Dataset } from 'apify';
 import { ApifyClient } from 'apify-client';
+import { parse } from 'json2csv';
 
 interface Input {
     actorId: string,
@@ -13,16 +14,13 @@ const { actorId, input } = (await Actor.getInput<Input>())!;
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
 //await Actor.call(actorId, input);
-const runId = (await Actor.call(actorId, input)).id;
-console.log(`Actor ran with ID: ${runId}`);
-const dataset = await apifyClient.dataset(runId);
-console.log(`Dataset ID: ${dataset.id}`);
+const datasetId = (await Actor.call(actorId, input)).defaultDatasetId
+console.log(`Actor run completed. Dataset ID: ${datasetId}`);
 
-
-// then convert `dataset.items` to CSV and save under OUTPUT.csv, e
-
-// retrieve datasets from actor runs
-
-// save dataset as CSV under OUTPUT.csv
+//const dataset = await apifyClient.datasets.getDataset({ datasetId });
+// Open a named dataset
+const dataset = await Dataset.open(datasetId);
+// Convert dataset items to CSV
+await dataset.exportToCSV('OUTPUT.csv');
 
 await Actor.exit();
