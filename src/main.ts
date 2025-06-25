@@ -2,8 +2,8 @@ import { Actor, Dataset } from 'apify';
 import { ApifyClient } from 'apify-client';
 
 interface Input {
-    actorId: string,
-    input: string
+    actorId: string;
+    input: string;
 }
 await Actor.init();
 
@@ -13,7 +13,7 @@ const { actorId, input } = (await Actor.getInput<Input>())!;
 const apifyClient = Actor.newClient();
 console.log(`Calling actor ${actorId}`);
 //await Actor.call(actorId, input);
-const datasetId = (await Actor.call(actorId, input)).defaultDatasetId
+const datasetId = (await Actor.call(actorId, input)).defaultDatasetId;
 console.log(`Actor run completed. Dataset ID: ${datasetId}`);
 
 //const dataset = await apifyClient.datasets.getDataset({ datasetId });
@@ -24,6 +24,5 @@ await dataset.exportToCSV('OUTPUT.csv');
 
 const keyValueStoreId = Actor.getEnv().defaultKeyValueStoreId;
 console.log('Current Key-Value Store ID:', keyValueStoreId);
-
 
 await Actor.exit();
